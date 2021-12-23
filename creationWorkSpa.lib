@@ -1,0 +1,28 @@
+#!/bin/bash
+#|------------------------------------------------------------------------------------------------------------------|
+#|  License:      GNU GPLv3                                                                                         |
+#|  Version:      1.0-23.12.21                                                                                      |
+#|  Nom Fichier:  checkProcess-rdidt.lib                                                                            |
+#|  Auteur:       POUFFARIX YANN <yann.pouffarix AT elientech dot fr>                                               |
+#|  Plateforme:   Linux                                                                                             |
+#|  Utilisation:  Librairie pour créer un dossier (provisoire si dans /tmp/) de travail                             |
+#|                pour faciliter la gestion du script et des logs particuliers                                     |
+#|  Utilisateur:  root                                                                                              |
+#|  Dependances:  ../run.sh                                                                                         |
+#|__________________________________________________________________________________________________________________|
+
+
+#Variable a modifier selon le besoin
+workSpaFolderVAR="/Chemin/complet/de/la/zone/de/travail"
+
+function creationWorkSpaFCT {
+# Test la présence du dossier
+  if [ -e $workSpaFolderVAR ]
+  then
+# Nous informe de sa présence
+    echo "Le Dossier $workSpaFolderVAR existe déjà"
+  else
+# Si non présent, le crée
+    mkdir $workSpaFolderVAR
+  fi
+}
